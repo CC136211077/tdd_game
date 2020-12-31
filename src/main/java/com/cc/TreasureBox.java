@@ -1,6 +1,7 @@
 package com.cc;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class TreasureBox {
     /**
      * 宝箱编号
@@ -22,7 +24,7 @@ public class TreasureBox {
     /**
      * 时间戳
      */
-    private Date date;
+    private Long date;
     /**
      * Hash值
      */

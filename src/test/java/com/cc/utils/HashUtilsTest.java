@@ -23,7 +23,7 @@ public class HashUtilsTest {
      * 则:  then 返回一个Hash值
      */
     public void getHashValue() {
-        String str = "1234";
+        String str = "123414124";
         String hashValue = HashUtils.getHashValue(str);
         System.out.println(hashValue);
         Assert.assertEquals(StringUtils.isNoneBlank(hashValue),true);
