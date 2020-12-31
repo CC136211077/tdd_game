@@ -9,13 +9,18 @@ import java.util.List;
 /**
  * @author: CC
  * @date: 2020/12/31 15:33
- * @Description:
+ * @Description: 搜索宝箱
  */
 
 public class SearchTreasureBox {
 
     private List<TreasureBox> treasureBoxes;
 
+    /**
+     * 查询第一个宝箱
+     * @param secretNum
+     * @return
+     */
     public List<Integer> searchFirst(int secretNum){
         treasureBoxes = new ArrayList<>();
         List<Integer> secretNums = new ArrayList();
@@ -37,8 +42,11 @@ public class SearchTreasureBox {
         return secretNums;
     }
 
+    /**
+     * 搜索所有的宝箱的神秘数字
+     * @return
+     */
     public List<Integer> searchAllBox(){
-
         treasureBoxes = new ArrayList<>();
         List<Integer> secretNums = new ArrayList();
         int code = NumConstant.ONE;
@@ -55,7 +63,6 @@ public class SearchTreasureBox {
     public void findNextBox(List<TreasureBox> treasureBoxes,int code,List<Integer> secretNums){
             if(code<=NumConstant.TEN){
                 for(int i= 1;i<1000000000;i++){
-
                     TreasureBox treasureBox = TreasureBox.builder().code(code).build();
                     if(code==1){
                         treasureBox.setFrontHashValue("0");
