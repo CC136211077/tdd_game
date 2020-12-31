@@ -1,9 +1,9 @@
 package com.cc;
 
 import com.cc.utils.HashUtils;
+import com.cc.utils.NumConstant;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,12 +19,12 @@ public class SearchTreasureBox {
     public List<Integer> searchFirst(int secretNum){
         treasureBoxes = new ArrayList<>();
         List<Integer> secretNums = new ArrayList();
-        int code = 1;
-        TreasureBox treasureBox = TreasureBox.builder().code(code).frontHashValue("0").build();
+        int code = NumConstant.ONE;
+        TreasureBox treasureBox = TreasureBox.builder().code(code).frontHashValue(NumConstant.ZERO+"").build();
         String hashValue = treasureBox.getCode() + treasureBox.getFrontHashValue() + secretNum;
         hashValue = HashUtils.getHashValue(hashValue);
 
-        if(hashValue.substring(0,5).equals("00000")){//找到什么钥匙
+        if(hashValue.substring(NumConstant.ONE,NumConstant.FIVE).equals("00000")){//找到什么钥匙
             System.out.println(hashValue);
             treasureBox.setHashValue(hashValue);
             treasureBox.setSecretNum(secretNum);
@@ -41,7 +41,7 @@ public class SearchTreasureBox {
 
         treasureBoxes = new ArrayList<>();
         List<Integer> secretNums = new ArrayList();
-        int code = 1;
+        int code = NumConstant.ONE;
         this.findNextBox(treasureBoxes,code,secretNums);
         return secretNums;
     }
@@ -53,7 +53,7 @@ public class SearchTreasureBox {
      * @param secretNums 神秘密码
      */
     public void findNextBox(List<TreasureBox> treasureBoxes,int code,List<Integer> secretNums){
-            if(code<=10){
+            if(code<=NumConstant.TEN){
                 for(int i= 1;i<1000000000;i++){
 
                     TreasureBox treasureBox = TreasureBox.builder().code(code).build();
